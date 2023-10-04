@@ -1,7 +1,8 @@
 import './App.css';
 import './components/Wishlist_card/Wishlist_Card.css'
-import Wishlist_Empty from './components/Wishlist_card/Wishlist_Empty';
 import 'bootstrap/dist/css/bootstrap.css';
+import Movie_Details from './pages/Movie_Details'
+import Movie_Details_page from './pages/Movie_Details';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -13,8 +14,7 @@ function App() {
 // You can use apiKey and baseUrl in your code as needed.
 
   return (
-    <div className="App">
-      
+    <div >
     </div>
   );
 }
