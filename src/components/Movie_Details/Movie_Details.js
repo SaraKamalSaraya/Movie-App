@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Movie_Details() {
+  
   return (
     <div className='mov-details'>
     <div className='row' style={{justifyContent:"space-between"}}>
