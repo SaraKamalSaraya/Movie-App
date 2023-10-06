@@ -1,0 +1,29 @@
+.allmoviesButton{
+    border: none;
+    border-radius: 20%;
+    background-color: transparent;
+    margin: 0 10px;
+    padding: .5rem;
+}
+
+.allmoviesButton:hover{
+    background-color: #fbe352;
+}
+.first{
+    background-color: #fbe352;
+}
+.dots{
+    padding: 0;
+    margin-left: 0;
+}
+.dots:hover{
+    background-color: transparent;
+}
+
+.arrow{
+    color: #292d32;
+}
+
+.arrow:hover{
+    color: #fbe252;
+}

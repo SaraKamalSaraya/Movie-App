@@ -1,7 +1,8 @@
 import React from 'react'
 import { faGlobe, faHeart } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 export default function Header() {
     return (
@@ -12,10 +13,9 @@ export default function Header() {
                     <NavLink className="nav-link active mx-2 fw-semibold" onClick=''>
                         <FontAwesomeIcon icon={faGlobe} style={{ color: "#000000", }} className='mx-1' />
                         En</NavLink>
-                    <NavLink to="/Watchlist" className="nav-link active mx-2 fw-semibold">
-                    <FontAwesomeIcon icon={faHeart} style={{color: "#000000",}} className='mx-1' onClick=''/>
+                    <NavLink to="/watch-list" className="nav-link active mx-2 fw-semibold">
+                    <FontAwesomeIcon icon={faHeart} style={{color: "#000000",}} className='mx-1'/>
                     Watchlist</NavLink>
-                    
                 </div>
             </div>
         </nav>
