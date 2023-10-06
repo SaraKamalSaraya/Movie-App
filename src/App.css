@@ -3,3 +3,10 @@
   text-align: center;
   justify-content: center;
 }
+  .card:hover{
+      transition: color 0.3s;
+      color: rgba(0,0,0,0.7);
+      transform: scale(1.09);
+      box-shadow: 50px 30px 80px 25px rgba(0,0,0, 0.5);
+      transition: all 0.4s;
+  }

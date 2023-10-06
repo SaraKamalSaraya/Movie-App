@@ -164,32 +164,16 @@ html, body{
     display: inline-grid;
   }
 }
-
-
-.bright_back{
-  background: url("https://images.unsplash.com/photo-1508919801845-fc2ae1bc2a28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80");
-}
-
-.tomb_back{
-  background: url("https://fsmedia.imgix.net/cd/c9/5e/ba/4817/4d9a/93f0/c776ec32ecbc/lara-crofts-neck-looks-unnatural-in-the-new-poster-for-tomb-raider.png");
-}
-
-.ave_back{
-    background: url("https://www.gannett-cdn.com/-mm-/c03fd140debe8ad4c05cf81a5cad7ad61a12ce52/c=0-1580-2985-3266&r=x803&c=1600x800/local/-/media/2017/06/09/USATODAY/USATODAY/636326272873599176-Black-Panther-Teaser.jpg");
-}
-
-
 .icon-button {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer; 
   outline: none; 
 }
 
 .icon-button:hover {
   transition: color 0.3s;
-  color: rgba(0,0,0,0.7);
+  color: black;
 }
 
 
