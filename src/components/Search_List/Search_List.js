@@ -16,7 +16,7 @@ export default function Search_List() {
       }).catch((err) => {
         console.log(err);
       });
-    }, []);
+    }, [prams.title]);
     console.log(items)
   return (
     <div>
