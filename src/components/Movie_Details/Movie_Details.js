@@ -65,7 +65,7 @@ function Movie_Details() {
                 {/* Geners */}
                 {
                   genres.map((genres) => {
-                    return <button disabled className='btn btn-warning mx-2 col-2' style={{ opacity: '100%' }}>{genres.name}</button>
+                    return <button disabled className='btn mx-2 col-2' style={{ opacity: '100%', backgroundColor:'#D48166', color:'white' }}>{genres.name}</button>
                   })
                 }
               </div>
@@ -92,7 +92,7 @@ function Movie_Details() {
                   })
                 }
               </div>
-              <button className='btn text-black p-2 px-4' style={{ borderColor: '#fbe352', borderRadius: '20px' }} onClick={() => window.open(`${movie.homepage}`, "_blank", 'noopener,noreferrer')}>
+              <button className='btn text-black p-2 px-4' style={{ borderColor: '#D48166', borderRadius: '20px' }} onClick={() => window.open(`${movie.homepage}`, "_blank", 'noopener,noreferrer')}>
                 View website
                 <FontAwesomeIcon className='ms-2' icon={faLink} style={{ "--fa-primary-color": "#000000", "--fa-secondary-color": "#f9ca2b", "--fa-secondary-opacity": "0.5", }} />
               </button>
@@ -100,7 +100,7 @@ function Movie_Details() {
           </div>
         </div>
       </div>
-      <hr style={{ margin: "32px", border: "1px solid grey" }} />
+      <hr style={{ margin: "32px", border: "1px solid #D48166" }} />
     </div>
   )
 }

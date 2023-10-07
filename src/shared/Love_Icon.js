@@ -17,7 +17,7 @@ export default function Love_Icon({movie}) {
     }
     return (
         <div>
-            <FontAwesomeIcon id={movie.id} icon={isMovieInWatchlist ? fullHeart :emptyHeart } style={{ color: "#fbe352", fontSize: '2rem' }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} />
+            <FontAwesomeIcon id={movie.id} icon={isMovieInWatchlist ? fullHeart :emptyHeart } style={{ color: "#D48166", fontSize: '2rem' }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} />
         </div>
     )
 }
