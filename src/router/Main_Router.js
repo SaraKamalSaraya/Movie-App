@@ -1,4 +1,4 @@
-import React, { Suspense , useState} from 'react'
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 const Movie_List = React.lazy(()=>import('../pages/Movie_List'))
@@ -8,7 +8,6 @@ const Not_Found = React.lazy(()=>import('../pages/Not_Found'))
 const WishList = React.lazy(()=>import('../pages/WishList'))
 
 export default function Main_Router() {
-  const [backgroundTheme, setBackgroundTheme] = useState(true);
   return (
     <Suspense fallback={<Loader />}>
       

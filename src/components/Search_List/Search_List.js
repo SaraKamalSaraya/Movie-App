@@ -6,18 +6,15 @@ import { LanguageContext } from '../../context/theme';
 import { getSearch } from '../../api/searchConfig';
 
 export default function Search_List() {
-    const prams = useParams();
+    const prams = useParams()
     const [items, setItems] = useState([]);
     const {language,setLanguage} = useContext(LanguageContext);
+
     useEffect(() => {
-      getSearch(language)
-        .then((res) => {
-          setItems(res.data.results);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, [prams.title, language]);
+      getSearch(prams.title,language)
+      .then((res) => { setItems(res.data.results) })
+      .catch((err) => { console.log(err) });
+    }, [prams.title,language]);
     console.log(items)
   return (
     <div>
