@@ -1,4 +1,5 @@
 .allmoviesButton{
+    width: 2.5rem;
     border: none;
     border-radius: 20%;
     background-color: transparent;
@@ -7,10 +8,12 @@
 }
 
 .allmoviesButton:hover{
-    background-color: #fbe352;
+    background-color: #D48166;
+    color: white;
 }
 .first{
-    background-color: #fbe352;
+    background-color: #D48166;
+    color: white;
 }
 .dots{
     padding: 0;
@@ -25,6 +28,6 @@
 }
 
 .arrow:hover{
-    color: #fbe252;
+    color: #D48166;
 }
 

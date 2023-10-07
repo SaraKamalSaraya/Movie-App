@@ -46,7 +46,8 @@ export default function Search_bar(props) {
     <>
     <div className="d-flex mb-3">
       <input type="text" className="form-control me-3" placeholder={movieTitle ? movieTitle : 'Search and explore....'} value={searchForm.title} onChange={handleFormChange} required/>
-      <button className="btn btn-outline-secondary border-0 text-black px-4" style={{ backgroundColor: '#fbe352' }} type="button" disabled={!isFormValid} onClick={handleSearchButton}>Search</button>
+      <button className="btn btn-outline-secondary border-0 text-black px-4" style={{ backgroundColor: '#D48166', }} type="button" disabled={!isFormValid} onClick={handleSearchButton}>
+        <span style={{color:'white'}}>Search</span></button>
     </div>
     {searchFormError.title && <div className="form-text text-danger text-start">{searchFormError.title}</div>}
     </>

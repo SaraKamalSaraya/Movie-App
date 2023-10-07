@@ -55,7 +55,7 @@ export default function All_Movies() {
     <div>
       <div className='my-5 text-start'>
         <h3 className='text-black fw-bold'>Popular Movies</h3>
-        <div className='d-flex align-items-center justify-content-center mb-3'>
+        <div className='d-flex align-items-center justify-content-center mb-3' >
           <FontAwesomeIcon icon={faLessThan} className='arrow' onClick={handlePreviousPage} />
           <button className='allmoviesButton first' onClick={() => { setPage(page); handlePageNumber() }}>{page}</button>
           <button className='allmoviesButton' onClick={() => { setPage(page+1); handlePageNumber() }}>{page+1}</button>

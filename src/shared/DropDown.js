@@ -15,8 +15,9 @@ function DropdownBTN() {
           backgroundColor: "transparent",
           border: "none", // Remove the default border
           boxShadow: "none", // Remove the default box shadow
+          color:'white'
         }} id="dropdown-basic">
-      <div style={{ color: "#000000" ,fontSize:"1.2em" }}><FontAwesomeIcon icon={faGlobe} className='mx-1' />{language}</div>
+      <div style={{ fontSize:"1.2em", fontWeight:'bold'}}><FontAwesomeIcon icon={faGlobe} className='mx-1' />{language}</div>
       </Dropdown.Toggle >
       <Dropdown.Menu>
         <Dropdown.Item onClick={()=>setLanguage("ar")} >ARABIC</Dropdown.Item>
