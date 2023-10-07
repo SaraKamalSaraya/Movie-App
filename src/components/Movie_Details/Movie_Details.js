@@ -4,16 +4,14 @@ import { useState, useEffect } from 'react';
 import Stars from '../../shared/Stars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { axiosInstance } from '../../api/config';
 import Love_Icon from '../../shared/Love_Icon';
 import NoImgFound from '../../shared/NoImgFound';
 import {LanguageContext}  from '../../context/theme'
-import axios from 'axios';
+import { getMoviesDetails } from '../../api/movieDetailsConfig';
 
 
 function Movie_Details() {
-  const API_KEY = process.env.REACT_APP_API_KEY; //apikey
-  const {language,setLanguage} = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
   console.log(language)
   const prams = useParams()
   const [movie, setMovie] = useState([])
@@ -21,8 +19,7 @@ function Movie_Details() {
   const [company, setCompany] = useState([])
   const [languages, setLanguages] = useState([])
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${prams.id}?api_key=${API_KEY}&language=${language}`)
-      // .get(`/movie/${prams.id}?api_key=${API_KEY}&language=${uILanguage}`)
+    getMoviesDetails(prams.id,language)
       .then((res) => {
         setMovie(res.data)
         setGenres(res.data.genres)

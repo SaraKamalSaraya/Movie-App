@@ -1,5 +1,6 @@
-import axios from 'axios';
+import { axiosInstance } from './config';
+import { API_KEY } from './config';
 
-export const axiosInstanceForSearch = axios.create({
-    baseURL: process.env.REACT_APP_SEARCH_URL
-})
+    export const getSearch = (language) => {
+        return axiosInstance.get(`/movie/popular?api_key=${API_KEY}&language=${language}`);
+    }
