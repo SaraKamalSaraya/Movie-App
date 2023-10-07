@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { axiosInstance } from '../../api/config';
 import Love_Icon from '../../shared/Love_Icon';
+import NoImgFound from '../../shared/NoImgFound';
 
 function Movie_Details() {
   const API_KEY = process.env.REACT_APP_API_KEY; //apikey
@@ -24,17 +25,23 @@ function Movie_Details() {
         setLanguage(res.data.spoken_languages)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [prams.id])
 
   return (
     <div className=''>
       <div className='row' style={{ justifyContent: "space-between" }}>
-        <div className='col-lg-3 col-md-4 col-sm-6' style={{ height: "65vh" }}>
-          {/* IMG */}
-          <div style={{ height: "100%", width: "100%" }}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} style={{ width: "100%", height: "100%", borderRadius: "27px" }} />
+      <div className='col-lg-3 col-md-4 col-sm-6' style={{ height: "65vh" }}>
+            {/* IMG */}
+            {movie.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                style={{ width: "100%", height: "100%", borderRadius: "27px" }}
+                alt={movie.title}
+              />
+            ) : (
+              <NoImgFound title={movie.title}/>
+            )}
           </div>
-        </div>
         <div className='col-lg-9 col-md-8 col-sm-6'>
           <div style={{ height: "100%", width: "100%" }}>
             {/* Title */}
@@ -75,11 +82,8 @@ function Movie_Details() {
                   company.map((company) => {
                     return (
                       <div>
-                        {
-                          company.logo_path != null ?
-                              <img key={company.id} src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} style={{ height: "100%", width: "100%" }} />
-                            :
-                            <></>
+                        { company.logo_path &&
+                          <img key={company.id} src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} style={{ height: "100%", width: "100%" }} />
                         }
                       </div>
                     )
