@@ -11,44 +11,41 @@ import Stars from '../../shared/Stars';
 
 const MovieCard = () => {
 
-  const whatchListMovies = useSelector(state=>state.WatchListData.data);
-
+  let whatchListMovies = useSelector(state => state.WatchListData.data);
   const dispatch = useDispatch();
-  const handleAddToWatchList =(event,itemData)=>{
+  const handleAddToWatchList = (event, itemData) => {
     event.stopPropagation();
     console.log("love clicked")
     dispatch(AddToWatchList(itemData));
   }
-
+console.log(whatchListMovies)
   return (
-    <>
-    {whatchListMovies.map((movie)=>(
-            <div className="movie_card" id={movie.id}>
-            <div className="info_section">
-              <div className="movie_header">
-                  <div style={{display:"flex",alignItems:"start",justifyContent:"start"}}>
-                      <img width={"100px"} height={"125px"}src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-                      <div style={{margin:"25px",textAlign:"start"}}>
-                      <h1>{movie.title}</h1>
-                      <Stars rating={movie.vote_average}/>
-                      <h4>{movie.release_date},</h4>
-                      <span className="minutes">120 min</span>
-                      <p className="type">ali</p>
-                      </div>
+    <div className='d-flex flex-wrap justify-content-start align-items-start m-0'>
+      {whatchListMovies.map((movie) => (
+        <div className="movie_card" id={movie.id}>
+          <div className="info_section mb-1">
+            <div className="movie_header">
+              <div style={{ display: "flex", alignItems: "start", justifyContent: "start" }}>
+                <img className='my-3 ms-3' style={{ borderRadius: '5%' }} width={"63%"} height='370px' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                <div style={{ marginLeft: "25px", textAlign: "start" }} className='d-flex flex-column justify-content-center'>
+                  <h1 className='mt-4' style={{width: "60%"}}>{movie.title}</h1>
+                  <Stars rating={movie.vote_average} />
+                  <h5 className='mt-2'>Released at: {movie.release_date}</h5>
+                  <div className="movie_desc mb-3" style={{width: "60%"}}>
+                    <p className="text " >{movie.overview}</p>
                   </div>
-              </div>
-              <div className="movie_desc">
-                <p className="text text-start" >{movie.overview}</p>
-              </div>
-              <div className="movie_social" style={{width:"400px",alignItems:"end",display:"flex"}}>   
-              <div className='d-flex position-absolute bottom-0 end-0 m-3'>
-              <FontAwesomeIcon icon={faHeart} style={{ color: "#fbe352", fontSize: '2.5rem'  }} className='' onClick={(event) => handleAddToWatchList(event, movie)} />
-              </div>
+                  <div className="movie_social" style={{ width: "400px", alignItems: "end", display: "flex" }}>
+                  </div>
+                </div>
               </div>
             </div>
+            <div className='d-flex position-absolute bottom-0 end-0 m-3'>
+              <FontAwesomeIcon icon={faHeart} style={{ color: "#fbe352", fontSize: '2.5rem' }} className='' onClick={(event) => handleAddToWatchList(event, movie)} />
+            </div>
           </div>
-    ))}
-    </>
+        </div>
+      ))}
+    </div>
   );
 };
 

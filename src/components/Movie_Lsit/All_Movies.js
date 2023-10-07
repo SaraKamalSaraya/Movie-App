@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Main_Card from '../../shared/Main_Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons';
 import './all_movies.css'
+import { axiosInstance } from '../../api/config';
 
 
 export default function All_Movies() {
   //this api call changer page 
   const API_KEY = process.env.REACT_APP_API_KEY; //apikey
-
   const [page, setPage] = useState(1);
-
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const PageURL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
-    axios.get(PageURL).then((res) => {
-      setItems(res.data.results)
-    }).catch((err) => {
-      console.log(err);
-    });
+    axiosInstance
+    .get(`/movie/popular?api_key=${API_KEY}&page=${page}`)
+    .then((res) => { setItems(res.data.results) })
+    .catch((err) => { console.log(err) });
   }, [page]);
 
 

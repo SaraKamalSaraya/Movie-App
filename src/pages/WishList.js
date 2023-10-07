@@ -12,7 +12,10 @@ export default function WishList() {
     );
   } else {
     return (
+      <div className="" style={{ padding: '2% 7%' }}>
+        <h3 className='text-black fw-bold mb-4'>My Watch List</h3>
       <MovieCard />
+    </div>
     );
   }
 }

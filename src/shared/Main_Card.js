@@ -1,23 +1,11 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import Stars from './Stars';
-import { useDispatch } from 'react-redux';
-import { AddToWatchList } from '../store/slices/watchList';
 
-
+import Love_Icon from './Love_Icon';
 
 export default function Main_Card({items}) {
   const navigate = useNavigate();
-
-
-  const dispatch = useDispatch();
-  const handleAddToWatchList =(event,itemData)=>{
-    event.stopPropagation();
-    console.log("love clicked")
-    dispatch(AddToWatchList(itemData));
-  }
   
   return (
   <>
@@ -33,7 +21,7 @@ export default function Main_Card({items}) {
             <div className='justify-content-between'>
               <p className="card-text text-secondary">{movie.release_date}</p>
               <div className='d-flex position-absolute bottom-0 end-0 m-3'>
-              <FontAwesomeIcon icon={faHeart} style={{ color: "#fbe352", fontSize: '2.5rem'  }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} />
+              <Love_Icon movie={movie}/>
               </div>
             </div>
           </div>

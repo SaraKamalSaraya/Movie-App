@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Main_Router from './router/Main_Router';
 
 function App() {
+  console.log(process.env.REACT_APP_SEARCH_URL)
   return (
     <div >
       <BrowserRouter>
