@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Stars from '../../shared/Stars';
@@ -7,25 +7,30 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { axiosInstance } from '../../api/config';
 import Love_Icon from '../../shared/Love_Icon';
 import NoImgFound from '../../shared/NoImgFound';
+import {LanguageContext}  from '../../context/theme'
+import axios from 'axios';
+
 
 function Movie_Details() {
   const API_KEY = process.env.REACT_APP_API_KEY; //apikey
+  const {language,setLanguage} = useContext(LanguageContext);
+  console.log(language)
   const prams = useParams()
   const [movie, setMovie] = useState([])
   const [genres, setGenres] = useState([])
   const [company, setCompany] = useState([])
-  const [language, setLanguage] = useState([])
+  const [languages, setLanguages] = useState([])
   useEffect(() => {
-    axiosInstance
-      .get(`/movie/${prams.id}?api_key=${API_KEY}`)
+    axios.get(`https://api.themoviedb.org/3/movie/${prams.id}?api_key=${API_KEY}&language=${language}`)
+      // .get(`/movie/${prams.id}?api_key=${API_KEY}&language=${uILanguage}`)
       .then((res) => {
         setMovie(res.data)
         setGenres(res.data.genres)
         setCompany(res.data.production_companies)
-        setLanguage(res.data.spoken_languages)
+        setLanguages(res.data.spoken_languages)
       })
       .catch((err) => console.log(err))
-  }, [prams.id])
+  }, [prams.id,language])
 
   return (
     <div className=''>
@@ -72,7 +77,7 @@ function Movie_Details() {
                 <p className='me-5'><span className='fw-semibold'>Duration: </span>{movie.runtime} Min.</p>
                 <span className='fw-semibold me-1'>Spoken languages: </span>
                 {
-                  language.map((language) => {
+                  languages.map((language) => {
                     return <p className='me-1'>{language.english_name}</p>
                   })
                 }

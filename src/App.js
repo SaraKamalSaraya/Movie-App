@@ -4,15 +4,26 @@ import './components/Wishlist_card/Wishlist_Card.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter } from 'react-router-dom';
 import Main_Router from './router/Main_Router';
+import { useState } from 'react';
+import { BackgroundTheme , LanguageContext } from './context/theme';
+
 
 function App() {
-  console.log(process.env.REACT_APP_SEARCH_URL)
+  const [backgroundTheme,setBackgroundTheme] = useState(true);
+  const [language,setLanguage] = useState("en");
   return (
     <div >
       <BrowserRouter>
-        <Header />
-        <Main_Router />
+        <BackgroundTheme.Provider value={{backgroundTheme,setBackgroundTheme}}>
+          <LanguageContext.Provider value={{language,setLanguage}}>
+          <div style={{backgroundColor: backgroundTheme? "white" :"#333" ,direction:language === "en"?"ltr":language === "ar"?"rtl":"ltr"}}> 
+            <Header />
+            <Main_Router />
+          </div>
+          </LanguageContext.Provider>
+        </BackgroundTheme.Provider>
       </BrowserRouter>
+      
     </div>
   );
 }
