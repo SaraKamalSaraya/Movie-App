@@ -6,12 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import Love_Icon from '../../shared/Love_Icon';
 import NoImgFound from '../../shared/NoImgFound';
-import {LanguageContext}  from '../../context/theme'
+import {BackgroundTheme, LanguageContext}  from '../../context/theme'
 import { getMoviesDetails } from '../../api/movieDetailsConfig';
 
 
 function Movie_Details() {
   const {language} = useContext(LanguageContext);
+  const {backgroundTheme} = useContext(BackgroundTheme);
   console.log(language)
   const prams = useParams()
   const [movie, setMovie] = useState([])
@@ -32,6 +33,7 @@ function Movie_Details() {
   return (
     <div className=''>
       <div className='row' style={{ justifyContent: "space-between" }}>
+      <h2 className={`${backgroundTheme?"text-black":"text-white"} fw-bold mb-4`}>Movie Details</h2>
       <div className='col-lg-3 col-md-4 col-sm-6' style={{ height: "65vh" }}>
             {/* IMG */}
             {movie.poster_path ? (
@@ -48,19 +50,19 @@ function Movie_Details() {
           <div style={{ height: "100%", width: "100%" }}>
             {/* Title */}
             <div className='d-flex justify-content-between align-items-center'>
-            <h2 className='text-black fw-bold mb-0'>{movie.title}</h2>
+            <h2 className={`${backgroundTheme?"text-black":"text-white"} fw-bold mb-0`}>{movie.title}</h2>
             <Love_Icon movie={movie}/>
             </div>
             {/* Release Date */}
-            <p className='mt-0' style={{ fontSize: '10px' }}>{movie.release_date}</p>
+            <p className={`${backgroundTheme?"text-black":"text-white"} mt-0`} style={{ fontSize: '10px' }}>{movie.release_date}</p>
             <div className=''>
               {/* Stars */}
               <div className='d-flex align-items-top'>
                 <Stars rating={movie.vote_average} />
-                <p className='ms-2 fw-semibold' style={{ fontSize: '12px' }}>{movie.vote_count}</p>
+                <p className={`${backgroundTheme?"text-black":"text-white"} ms-2 fw-semibold`} style={{ fontSize: '12px' }}>{movie.vote_count}</p>
               </div>
               {/* Describtion */}
-              <p className=''>{movie.overview}</p>
+              <p className={`${backgroundTheme?"text-black":"text-white"}`}>{movie.overview}</p>
               <div className='category row mb-3'>
                 {/* Geners */}
                 {
@@ -70,29 +72,31 @@ function Movie_Details() {
                 }
               </div>
               {/* Duration */}
-              <div className='d-flex mb-3'>
-                <p className='me-5'><span className='fw-semibold'>Duration: </span>{movie.runtime} Min.</p>
-                <span className='fw-semibold me-1'>Spoken languages: </span>
+              <div className= {`${backgroundTheme?"text-black":"text-white"} d-flex mb-3`}>
+                <p className= 'me-5'>
+                <span className=  'fw-semibold' >Duration: </span>{movie.runtime} Min.</p>
+                <span className= 'fw-semibold me-1' >languages: </span>
                 {
                   languages.map((language) => {
-                    return <p className='me-1'>{language.english_name}</p>
+                    return <p className={`${backgroundTheme?"text-black":"text-white"} me-1`} >{language.english_name}</p>
                   })
                 }
               </div>
-              <div className='mb-3 d-flex stdio-img me-4' style={{ height: "50px", width: "210px" }}>
+              <div className="d-flex justify-content-evenly mb-3 stdio-img me-4" style={{ height: "50px", width: "210px" }}>
                 {
                   company.map((company) => {
                     return (
-                      <div>
+                      <div >
                         { company.logo_path &&
-                          <img key={company.id} src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} style={{ height: "100%", width: "100%" }} />
+                          <img key={company.id} src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} style={{ height: "100%", width: "100%", padding:"2px" }} />
                         }
                       </div>
                     )
                   })
                 }
               </div>
-              <button className='btn text-black p-2 px-4' style={{ borderColor: '#D48166', borderRadius: '20px' }} onClick={() => window.open(`${movie.homepage}`, "_blank", 'noopener,noreferrer')}>
+              
+              <button className={`${backgroundTheme?"text-black":"text-white"} btn text-black p-2 px-4`} style={{ borderColor: '#D48166', borderRadius: '20px' }} onClick={() => window.open(`${movie.homepage}`, "_blank", 'noopener,noreferrer')}>
                 View website
                 <FontAwesomeIcon className='ms-2' icon={faLink} style={{ "--fa-primary-color": "#000000", "--fa-secondary-color": "#f9ca2b", "--fa-secondary-opacity": "0.5", }} />
               </button>
