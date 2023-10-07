@@ -2,11 +2,13 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as fullHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddToWatchList } from '../store/slices/watchList';
 
-export default function Love_Icon(props) {
-    const movie = props
+export default function Love_Icon({movie}) {
+
+    const watchListData = useSelector(state=>state.WatchListData.data)
+    const isMovieInWatchlist = watchListData.some((item) => item.id === movie.id); // check if movie is in watch list or not 
     const dispatch = useDispatch();
     const handleAddToWatchList = (event, itemData) => {
         event.stopPropagation();
@@ -15,8 +17,7 @@ export default function Love_Icon(props) {
     }
     return (
         <div>
-            {/* <FontAwesomeIcon icon={emptyHeart} style={{ color: "#fbe352", fontSize: '2rem' }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} /> */}
-            <FontAwesomeIcon icon={fullHeart} style={{ color: "#fbe352", fontSize: '2rem' }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} />
+            <FontAwesomeIcon id={movie.id} icon={isMovieInWatchlist ? fullHeart :emptyHeart } style={{ color: "#fbe352", fontSize: '2rem' }} className='icon-button' onClick={(event) => handleAddToWatchList(event, movie)} />
         </div>
     )
 }
