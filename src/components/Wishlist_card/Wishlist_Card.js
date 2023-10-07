@@ -6,6 +6,7 @@ import { AddToWatchList } from '../../store/slices/watchList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Stars from '../../shared/Stars';
+import Love_Icon from '../../shared/Love_Icon';
 
 
 
@@ -40,7 +41,7 @@ console.log(whatchListMovies)
               </div>
             </div>
             <div className='d-flex position-absolute bottom-0 end-0 m-3'>
-              <FontAwesomeIcon icon={faHeart} style={{ color: "#fbe352", fontSize: '2.5rem' }} className='' onClick={(event) => handleAddToWatchList(event, movie)} />
+              <Love_Icon movie={movie}/>
             </div>
           </div>
         </div>
