@@ -1,25 +1,21 @@
+import './all_movies.css'
 import React, { useContext, useEffect, useState } from 'react'
 import Main_Card from '../../shared/Main_Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons';
-import './all_movies.css'
-import { axiosInstance } from '../../api/config';
 import { LanguageContext } from '../../context/theme';
+import { getMovies } from '../../api/movieConfig';
+
 
 
 export default function All_Movies() {
 
   const {language,setLanguage} = useContext(LanguageContext);
-  
-  
-  //this api call changer page 
-  const API_KEY = process.env.REACT_APP_API_KEY; //apikey
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axiosInstance
-    .get(`/movie/popular?api_key=${API_KEY}&page=${page}&language=${language}`)
+    getMovies(page,language)
     .then((res) => { setItems(res.data.results) })
     .catch((err) => { console.log(err) });
   }, [page,language]);
