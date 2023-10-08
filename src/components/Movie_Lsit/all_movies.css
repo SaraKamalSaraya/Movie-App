@@ -19,10 +19,6 @@
     padding: 0;
     margin-left: 0;
 }
-.dots:hover{
-    background-color: transparent;
-}
-
 .arrow{
     color: #292d32;
 }

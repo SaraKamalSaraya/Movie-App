@@ -1,10 +1,6 @@
 import React from 'react';
 import 'material-icons/iconfont/material-icons.css';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { AddToWatchList } from '../../store/slices/watchList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Stars from '../../shared/Stars';
 import Love_Icon from '../../shared/Love_Icon';
 import NoImgFound from '../../shared/NoImgFound';
@@ -14,12 +10,7 @@ import NoImgFound from '../../shared/NoImgFound';
 const MovieCard = () => {
 
   let whatchListMovies = useSelector(state => state.WatchListData.data);
-  const dispatch = useDispatch();
-  const handleAddToWatchList = (event, itemData) => {
-    event.stopPropagation();
-    console.log("love clicked")
-    dispatch(AddToWatchList(itemData));
-  }
+
 console.log(whatchListMovies)
   return (
     <div className='d-flex flex-wrap justify-content-start align-items-start m-0'>

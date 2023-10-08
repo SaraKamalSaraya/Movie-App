@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { LanguageContext } from '../context/theme';
 
 export default function Search_bar({movieTitle}) {
-  
+  const {language} = useContext(LanguageContext)
   const navigate = useNavigate();
 
   const [ searchForm, setSearchForm ] = useState('')
@@ -34,9 +35,9 @@ export default function Search_bar({movieTitle}) {
   return (
     <>
     <div className="d-flex mb-3">
-      <input type="text" className="form-control me-3" placeholder={movieTitle ? movieTitle : 'Search and explore....'} value={searchForm} onChange={handleFormChange} required/>
+      <input type="text" className="form-control me-3" placeholder={movieTitle ? movieTitle : language==="ar"? 'ابحث عن ...':'Search and explore....'} value={searchForm} onChange={handleFormChange} required/>
       <button className="btn btn-outline-secondary border-0 text-black px-4" style={{ backgroundColor: '#D48166', }} type="button" disabled={!isFormValid} onClick={handleSearchButton}>
-        <span style={{color:'white'}}>Search</span></button>
+        <span style={{color:'white'}}>{language === 'ar'? 'بحث':'Search'}</span></button>
     </div>
     {searchFormError && <div className="form-text text-danger text-start">{searchFormError}</div>}
     </>

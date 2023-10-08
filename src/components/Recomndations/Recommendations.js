@@ -20,7 +20,7 @@ export default function Recommendations() {
       }, [items,language])
     return (
       <>
-      <h2 className= {`${backgroundTheme?"text-black":"text-white"} fw-bold mb-4`}>Recommendations</h2>
+      <h2 className= {`${backgroundTheme?"text-black":"text-white"} fw-bold mb-4`}>{language === 'ar'? 'الاقتراحات':'Recommendations'}</h2>
         <div className='d-flex flex-wrap justify-content-center '>
           <Main_Card items={items}/>
         </div>

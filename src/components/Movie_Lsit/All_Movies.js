@@ -10,7 +10,7 @@ import { BackgroundTheme } from '../../context/theme';
 
 export default function All_Movies() {
   const {backgroundTheme} = useContext(BackgroundTheme)
-  const {language,setLanguage} = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
 
@@ -50,20 +50,20 @@ export default function All_Movies() {
   return (
     <div>
       <div className='my-5 text-start'>
-        <h3 className='fw-bold' style={{ color: backgroundTheme ? 'black' : 'white' }}>Popular Movies</h3>
-        <div className='d-flex align-items-center justify-content-center mb-3' >
-          <FontAwesomeIcon icon={faLessThan} className='arrow' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={handlePreviousPage} />
+        <h3 className='fw-bold' style={{ color: backgroundTheme ? 'black' : 'white' }}>{language === "ar"? " الافلام الشائعة ":"Popular Movies"}</h3>
+ 
+        {/* Cards */}
+        <div className='cards d-flex flex-wrap justify-content-center  '>
+          <Main_Card items={items} />
+        </div>
+        <div className='d-flex align-items-center justify-content-center mt-3' >
+          <FontAwesomeIcon icon={language==="ar" ? faGreaterThan: faLessThan} className='arrow' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={handlePreviousPage} />
           <button className='allmoviesButton first' onClick={() => { setPage(page); handlePageNumber() }}>{page}</button>
           <button className='allmoviesButton' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={() => { setPage(page+1); handlePageNumber() }}>{page+1}</button>
           <button className='allmoviesButton' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={() => { setPage(page+2); handlePageNumber() }}>{page+2}</button>
           <button className='allmoviesButton' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={() => { setPage(page+3); handlePageNumber() }}>{page+3}</button>
           <button className='allmoviesButton' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={() => { setPage(page+4); handlePageNumber() }}>{page+4}</button>
-          <p className='allmoviesButton dots'>...</p>
-          <FontAwesomeIcon icon={faGreaterThan} className='arrow' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={handleNextPage} />
-        </div>
-        {/* Cards */}
-        <div className='cards d-flex flex-wrap justify-content-center '>
-          <Main_Card items={items} />
+          <FontAwesomeIcon icon={language==="ar" ? faLessThan:faGreaterThan} className='arrow' style={{ color: backgroundTheme ? 'black' : 'white' }} onClick={handleNextPage} />
         </div>
       </div>
     </div>

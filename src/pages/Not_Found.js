@@ -1,11 +1,11 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
+import React, { useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import Empty from '../shared/Empty';
+import { LanguageContext } from '../context/theme';
 
 export default function Not_Found() {
+  const{language} = useContext(LanguageContext);
   return (
-    <Empty msg='Page Not Found!' />
+    <Empty msg={language==="ar"?"الصفحة غيرموجودة" :'Page Not Found!'}  />
   )
 }

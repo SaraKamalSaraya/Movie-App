@@ -33,7 +33,7 @@ function Movie_Details() {
   return (
     <div className=''>
       <div className='row' style={{ justifyContent: "space-between" }}>
-      <h2 className={`${backgroundTheme?"text-black":"text-white"} fw-bold mb-4`}>Movie Details</h2>
+      <h2 className={`${backgroundTheme?"text-black":"text-white"} fw-bold mb-4`}>{language === "ar"? "تفاصيل الفيلم":"Movie Details"}</h2>
       <div className='col-lg-3 col-md-4 col-sm-6' style={{ height: "65vh" }}>
             {/* IMG */}
             {movie.poster_path ? (
@@ -74,8 +74,8 @@ function Movie_Details() {
               {/* Duration */}
               <div className= {`${backgroundTheme?"text-black":"text-white"} d-flex mb-3`}>
                 <p className= 'me-5'>
-                <span className=  'fw-semibold' >Duration: </span>{movie.runtime} Min.</p>
-                <span className= 'fw-semibold me-1' >languages: </span>
+                <span className=  'fw-semibold' >{language === "ar"? " المدة: ":"Duration: "} </span>{movie.runtime} {language === "ar"? " دقيقة ":"Min. "} </p>
+                <span className= 'fw-semibold mx-1' >{language === "ar"? " اللغات: ":"languages:"} </span>
                 {
                   languages.map((language) => {
                     return <p className={`${backgroundTheme?"text-black":"text-white"} me-1`} >{language.english_name}</p>

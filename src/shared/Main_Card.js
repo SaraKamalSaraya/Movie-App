@@ -11,7 +11,7 @@ export default function Main_Card({items}) {
   return (
   <>
     {items.map((movie) => (
-        <div key={movie.id} className="card border-0 potition-relative m-5"
+        <div key={movie.id} className="card border-0 potition-relative m-4"
           style={{ width: '12rem', borderRadius: '1rem', margin: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '1px solid #ccc' }}
           onClick={() => navigate(`/movie-details/${movie.id}`)}
         >

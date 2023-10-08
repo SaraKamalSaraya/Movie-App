@@ -24,8 +24,8 @@ export default function Search_List() {
       {
         items == 0 ? <Search_Result_Empty />
           :
-          <div className='my-5 text-start'>
-            <h3 className='fw-bold' style={{ color: backgroundTheme ? 'black' : 'white' }}>Search Result for {prams.title}</h3>
+          <div className='my-5'>
+            <h3 className='fw-bold' style={{ color: backgroundTheme ? 'black' : 'white' }}>{language === 'ar'? 'نتائج البحث عن ':'Search Result for '}{prams.title}</h3>
             {/* Cards */}
             <div className='d-flex flex-wrap justify-content-center'>
               <Main_Card items={items} />

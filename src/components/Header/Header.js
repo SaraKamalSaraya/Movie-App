@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { faGlobe, faHeart, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BackgroundTheme, LanguageContext } from '../../context/theme';
