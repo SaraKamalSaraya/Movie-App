@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Stars from '../../shared/Stars';
 import Love_Icon from '../../shared/Love_Icon';
+import NoImgFound from '../../shared/NoImgFound';
 
 
 
@@ -26,8 +27,13 @@ console.log(whatchListMovies)
         <div className="movie_card" id={movie.id}>
           <div className="info_section mb-1">
             <div className="movie_header">
-              <div style={{ display: "flex", alignItems: "start", justifyContent: "start" }}>
-                <img className='my-3 ms-3' style={{ borderRadius: '5%' }} width={"63%"} height='370px' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              <div className='' style={{ display: "flex", alignItems: "start", justifyContent: "start", width:"63%", height:'400px' }}>
+                {
+                  movie.poster_path ? 
+                <img className='h-100 w-100' style={{ borderRadius: '5%' }}  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                  :
+                  <NoImgFound/>
+                }
                 <div style={{ marginLeft: "25px", textAlign: "start" }} className='d-flex flex-column justify-content-center'>
                   <h1 className='mt-4' style={{width: "60%"}}>{movie.title}</h1>
                   <Stars rating={movie.vote_average} />
