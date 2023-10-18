@@ -4,18 +4,22 @@ import { useSelector } from 'react-redux';
 import Stars from '../../shared/Stars';
 import Love_Icon from '../../shared/Love_Icon';
 import NoImgFound from '../../shared/NoImgFound';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const MovieCard = () => {
 
-  let whatchListMovies = useSelector(state => state.WatchListData.data);
+let whatchListMovies = useSelector(state => state.WatchListData.data);
+const navigate = useNavigate();
 
 console.log(whatchListMovies)
   return (
     <div className='d-flex flex-wrap justify-content-start align-items-start m-0'>
       {whatchListMovies.map((movie) => (
-        <div className="movie_card" id={movie.id}>
+        <div className="movie_card" id={movie.id}
+        onClick={() => navigate(`/movie-details/${movie.id}`)}
+        >
           <div className="info_section mb-1">
             <div className="movie_header">
               <div className='' style={{ display: "flex", alignItems: "start", justifyContent: "start", width:"63%", height:'400px' }}>

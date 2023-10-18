@@ -12,10 +12,11 @@ export default function Main_Router() {
     <Suspense fallback={<Loader />}>
       
           <Routes>
-            <Route path='/' element={<Movie_List />} />
+            
             <Route path='/movie-details/:id' element={<Movie_Details_page />} />
             <Route path='/search/:title' element={<Movies_Search_Result />} />
             <Route path='/watch-list' element={<WishList />} />
+            <Route path='/home' element={<Movie_List />} />
             <Route path='/*' element={<Not_Found />} />
           </Routes>
     </Suspense>

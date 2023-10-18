@@ -21,7 +21,7 @@ export default function Header() {
     return (
         <nav className="navbar" style={{ padding: '0.5% 5%', background: '#D48166', color:'white', direction: "ltr" }}>
             <div className="container-fluid d-flex justify-content-between">
-                <NavLink to="/" className="navbar-brand fw-bold fs-4" style={{color:'white'}}>Movie App</NavLink>
+                <NavLink to="/home" className="navbar-brand fw-bold fs-4" style={{color:'white'}}>Movie App</NavLink>
                 <div className='d-flex justify-content-end align-items-center'>
                     <NavLink className="nav-link active mx-2 fw-semibold" onClick={handleChangeMode}>
                         <FontAwesomeIcon icon={backgroundTheme ? faSun : faMoon} style={{  fontSize: '1.2rem' }}/>
