@@ -14,7 +14,7 @@ export default function Empty(props) {
     <div className={`${backgroundTheme?"text-black":"text-white"} empty-wishlsit`} style={{height:"1000px"}}>
         <FontAwesomeIcon style={{fontSize:"300px"}} icon={faHeartCrack} />
         <p style={{fontSize:"24px",margin:"32px"}}>{msg}</p>
-        <button style={{paddingLeft:"100px",paddingRight:"100px", backgroundColor:'#D48166'}} className='btn' onClick={()=>navigate("/")}><h4 style={{color:"white"}}>{language==="ar"?"عودة الي الصفحة الرئيسية":"Back To Home"}</h4></button>
+        <button style={{paddingLeft:"100px",paddingRight:"100px", backgroundColor:'#D48166'}} className='btn' onClick={()=>navigate("/home")}><h4 style={{color:"white"}}>{language==="ar"?"عودة الي الصفحة الرئيسية":"Back To Home"}</h4></button>
     </div>
   )
 }
